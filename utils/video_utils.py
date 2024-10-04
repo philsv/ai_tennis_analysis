@@ -32,30 +32,3 @@ def save_video(output_video_frames: list, output_video_path: str) -> None:
         out.write(frame)
     out.release()
     print(f"Video saved at {output_video_path}")
-
-
-def save_video_as_gif(
-    output_video_frames: list,
-    output_video_path: str,
-    fps: int = 24,
-    duration: int = 10,
-) -> None:
-    """Save the video frames as a GIF."""
-    from tqdm import tqdm
-    
-    max_frames = fps * duration
-    limited_frames = output_video_frames[:max_frames]
-
-    images = []
-    for frame in tqdm(limited_frames, desc="Saving GIF"):
-        image = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-        images.append(image)
-
-    images[0].save(
-        output_video_path,
-        save_all=True,
-        append_images=images[1:],
-        duration=1000 / fps,
-        loop=0,
-    )
-    print(f"GIF saved at {output_video_path}")

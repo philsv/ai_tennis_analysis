@@ -209,9 +209,6 @@ def main():
     # Save the output video.
     Path("outputs").mkdir(exist_ok=True)
     save_video(output_video_frames, "outputs/output_video.avi")
-    
-    # Save the output video as a GIF.
-    # save_video_as_gif(output_video_frames, "example.gif")
 
 
 if __name__ == "__main__":
