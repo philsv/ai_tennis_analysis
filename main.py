@@ -11,7 +11,7 @@ from court_lines import CourtLineDetector
 from mini_court import MiniCourt
 from trackers import BallTracker, PlayerTracker
 from utils import (convert_pixel_distance_to_meters, draw_player_stats,
-                   measure_distance, read_video, save_video, save_video_as_gif)
+                   measure_distance, read_video, save_video)
 
 warnings.simplefilter("ignore", UserWarning)
 warnings.simplefilter("ignore", SettingWithCopyWarning)
@@ -56,14 +56,7 @@ def main():
     # Detect the tennis ball hits.
     ball_shot_frames = ball_tracker.get_ball_shot_frames(ball_detections)
 
-    # Convert positions to mini court coordinates.
-    player_mini_court_detections, ball_mini_court_detections = (
-        mini_court.convert_bboxes_to_mini_court_coordinates(
-            player_detections, ball_detections, court_keypoints
-        )
-    )
     # Get the distance covered by the ball in meters.
-
     player_stats = [
         {
             "frame_number": 0,
@@ -79,6 +72,13 @@ def main():
             "player_2_last_player_speed": 0,
         }
     ]
+
+    # Convert positions to mini court coordinates.
+    player_mini_court_detections, ball_mini_court_detections = (
+        mini_court.convert_bboxes_to_mini_court_coordinates(
+            player_detections, ball_detections, court_keypoints
+        )
+    )
 
     for ball_shot_index in range(len(ball_shot_frames) - 1):
         start_frame = ball_shot_frames[ball_shot_index]

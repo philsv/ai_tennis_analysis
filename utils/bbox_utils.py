@@ -27,7 +27,7 @@ def get_closest_keypoint_index(
     original_court_keypoints,
     keypoint_indices: list,
 ):
-    """ "Get the index of the closest keypoint to the foot position."""
+    """Get the index of the closest keypoint to the foot position."""    
     closest_distance = float("inf")
     keypoint_index = keypoint_indices[0]
 
@@ -38,8 +38,11 @@ def get_closest_keypoint_index(
         )
         distance = abs(position[1] - keypoint_tuple[1])
 
+        # Update the closest keypoint index if the distance is smaller.
         if distance < closest_distance:
             closest_distance = distance
+            
+            # Get the index of the closest keypoint to the foot position.
             keypoint_index = point
     return keypoint_index
 

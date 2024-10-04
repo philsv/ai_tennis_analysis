@@ -9,10 +9,6 @@ import torchvision.transforms as transforms  # type: ignore
 sys.path.append("../")
 import constants
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 07537a6a10197c736bd3961b0576ef4b405a4dc4
 class CourtLineDetector:
     """Responsible for detecting the court lines in the video feed."""
 
@@ -60,7 +56,7 @@ class CourtLineDetector:
                 (x, y - 10),
                 cv2.FONT_HERSHEY_SIMPLEX,
                 0.5,
-                constants.BLUE,
+                constants.WHITE,
                 2,
             )
             cv2.circle(frame, (x, y), 5, constants.BLUE, cv2.FILLED)
