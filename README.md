@@ -4,7 +4,7 @@ This project is a complete rebuild of the [original project by Abdullah Tarek](h
 
 ## Output Example
 
-This is the final output video:
+This is a snippet from the final output video:
 
 ![image](example.gif)
 
