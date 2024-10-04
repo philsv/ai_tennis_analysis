@@ -36,6 +36,8 @@ cd ai_tennis_analysis
 pip install -r requirements.txt
 ```
 
+* Download the models from [Google Drive](https://drive.google.com/drive/folders/1SIoKD8Yi2c8qN0vltrzw2QuwSRUT9_HT?usp=sharing)
+
 ## Usage
 
 * Run the project
