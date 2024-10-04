@@ -37,6 +37,8 @@ pip install -r requirements.txt
 
 * Download the models from [Google Drive](https://drive.google.com/drive/folders/1SIoKD8Yi2c8qN0vltrzw2QuwSRUT9_HT?usp=sharing)
 
+* 0r train the model yourself with the files from the [training folder](https://github.com/philsv/ai_tennis_analysis/tree/main/training)
+
 ## Usage
 
 * Run the project
