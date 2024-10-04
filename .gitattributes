@@ -1,0 +1,3 @@
+*.pt filter=lfs diff=lfs merge=lfs
+*.pth filter=lfs diff=lfs merge=lfs
+*.avi filter=lfs diff=lfs merge=lfs
