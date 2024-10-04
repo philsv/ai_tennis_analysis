@@ -1,0 +1,24 @@
+# Compiled Python bytecode
+*.py[cod]
+
+# Log files
+*.log
+
+# Dot env
+.env
+.env.**
+
+# Cache Files
+.pytest_cache
+.dccache
+
+# Vscode
+.vscode/
+
+# Folders
+/data
+/runs
+
+# model files
+*.pt
+*.pth

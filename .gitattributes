@@ -1,0 +1,3 @@
+*.mp4 filter=lfs diff=lfs merge=lfs
+*.avi filter=lfs diff=lfs merge=lfs
+*.gif filter=lfs diff=lfs merge=lfs
