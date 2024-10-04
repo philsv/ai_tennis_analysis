@@ -65,7 +65,7 @@ This will create the output video and save it in the `outputs` folder.
 
 ## Reference
 
-* [Build an AI/ML Tennis Analysis system with YOLO, PyTorch, and Key Point Extraction](https://www.youtube.com/watch?v=L23oIHZE14w&t=8069s)
+* [Build an AI/ML Tennis Analysis system with YOLO, PyTorch, and Key Point Extraction](https://www.youtube.com/watch?v=L23oIHZE14w&)
 
 ## To-Do
 
