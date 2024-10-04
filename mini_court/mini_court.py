@@ -2,14 +2,19 @@ import sys
 
 import cv2
 import numpy as np
-from scipy.interpolate import splev, splprep  # type: ignore
 
 sys.path.append("../")
 import constants
-from utils import (convert_meters_to_pixel_distance,
-                   convert_pixel_distance_to_meters, get_center_of_bbox,
-                   get_closest_keypoint_index, get_foot_position,
-                   get_height_of_bbox, measure_distance, measure_xy_distance)
+from utils import (
+    convert_meters_to_pixel_distance,
+    convert_pixel_distance_to_meters,
+    get_center_of_bbox,
+    get_closest_keypoint_index,
+    get_foot_position,
+    get_height_of_bbox,
+    measure_distance,
+    measure_xy_distance,
+)
 
 
 class MiniCourt:
@@ -25,24 +30,6 @@ class MiniCourt:
         self.set_mini_court_position()
         self.set_court_drawing_keypoints()
         self.set_court_lines()
-
-    def smooth_ball_positions(self, ball_positions: list) -> list:
-        """Smooth the ball positions using spline interpolation."""
-        if len(ball_positions) < 3:
-            return ball_positions  # Not enough points to interpolate
-
-        # Extract x and y coordinates
-        x = [pos[0] for pos in ball_positions]
-        y = [pos[1] for pos in ball_positions]
-
-        # Perform spline interpolation
-        tck, u = splprep([x, y], s=2)
-        u_new = np.linspace(u.min(), u.max(), len(ball_positions))
-        x_new, y_new = splev(u_new, tck)
-
-        # Combine smoothed x and y coordinates
-        smoothed_positions = list(zip(x_new, y_new))
-        return smoothed_positions
 
     def convert_meters_to_pixels(self, meters: float):
         """Helper function to convert meters to pixels."""
@@ -299,12 +286,10 @@ class MiniCourt:
 
         output_player_boxes = []
         output_ball_boxes = []
-        ball_positions = []
 
         for frame_num, player_bbox in enumerate(player_boxes):
             ball_box = ball_boxes[frame_num][1]
             ball_position = get_center_of_bbox(ball_box)
-            ball_positions.append(ball_position)
             closest_player_id_to_ball = min(
                 player_bbox.keys(),
                 key=lambda x: measure_distance(
@@ -317,7 +302,7 @@ class MiniCourt:
                 foot_position = get_foot_position(bbox)
 
                 closest_key_point_index = get_closest_keypoint_index(
-                    foot_position, original_court_keypoints, [5, 7, 4, 6, 12, 13]
+                    foot_position, original_court_keypoints, [0, 2, 12, 13]
                 )
                 closest_key_point = (
                     original_court_keypoints[closest_key_point_index * 2],
@@ -344,7 +329,7 @@ class MiniCourt:
 
                 if closest_player_id_to_ball == player_id:
                     closest_key_point_index = get_closest_keypoint_index(
-                        ball_position, original_court_keypoints, [0, 2, 1, 3, 12, 13]
+                        ball_position, original_court_keypoints, [0, 2, 12, 13]
                     )
                     closest_key_point = (
                         original_court_keypoints[closest_key_point_index * 2],
@@ -358,20 +343,9 @@ class MiniCourt:
                         max_player_height_in_pixels,
                         player_heights[player_id],
                     )
-
-                    # Smooth the ball positions
-                    mini_court_player_position = self.smooth_ball_positions(
-                        mini_court_player_position
-                    )
-                    output_ball_boxes.append(
-                        {
-                            1: (
-                                mini_court_player_position[0],
-                                mini_court_player_position[1],
-                            )
-                        }
-                    )
+                    output_ball_boxes.append({1: mini_court_player_position})
             output_player_boxes.append(output_player_bboxes_dict)
+
         return output_player_boxes, output_ball_boxes
 
     def draw_points_on_mini_court(
