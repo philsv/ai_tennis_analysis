@@ -6,7 +6,6 @@
 
 # Dot env
 .env
-.env.**
 
 # Cache Files
 .pytest_cache
