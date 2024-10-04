@@ -9,7 +9,10 @@ import torchvision.transforms as transforms  # type: ignore
 sys.path.append("../")
 import constants
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 07537a6a10197c736bd3961b0576ef4b405a4dc4
 class CourtLineDetector:
     """Responsible for detecting the court lines in the video feed."""
 

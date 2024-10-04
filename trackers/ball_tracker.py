@@ -1,7 +1,13 @@
 import pickle
+<<<<<<< HEAD
 import sys
 from pathlib import Path
 from typing import Union
+=======
+from pathlib import Path
+from typing import Union
+import sys
+>>>>>>> 07537a6a10197c736bd3961b0576ef4b405a4dc4
 
 import cv2
 import numpy as np
@@ -11,7 +17,10 @@ from ultralytics import YOLO  # type: ignore
 sys.path.append("../")
 import constants
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 07537a6a10197c736bd3961b0576ef4b405a4dc4
 class BallTracker:
     """Responsible for tracking the tennis ball in the video feed."""
 

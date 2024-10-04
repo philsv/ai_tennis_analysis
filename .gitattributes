@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 *.mp4 filter=lfs diff=lfs merge=lfs
 *.avi filter=lfs diff=lfs merge=lfs
 *.gif filter=lfs diff=lfs merge=lfs
+=======
+*.pt filter=lfs diff=lfs merge=lfs
+*.pth filter=lfs diff=lfs merge=lfs
+*.avi filter=lfs diff=lfs merge=lfs
+>>>>>>> 07537a6a10197c736bd3961b0576ef4b405a4dc4
