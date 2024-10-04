@@ -1,6 +1,6 @@
 # AI Tennis Analysis
 
-This project is a complete rebuild of the [original project by Abdullah Tarek](https://github.com/abdullahtarek/tennis_analysis), which analyzes tennis players in video to measure key metrics such as player speed, ball shot speed, and detects both players and the tennis ball on the court using YOLO, while extracting court keypoints with CNNs.
+This is a rebuild project from scratch based on the [original work by Abdullah Tarek](https://github.com/abdullahtarek/tennis_analysis), which analyzes tennis players in video to measure key metrics such as player speed, ball shot speed, and detects both players and the tennis ball on the court using YOLO, while extracting court keypoints with CNNs.
 
 ## Output Example
 
