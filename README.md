@@ -10,7 +10,6 @@ This is a snippet from the final output video:
 
 ## Dependencies
 
-* imageio
 * numpy
 * pandas
 * python-dotenv

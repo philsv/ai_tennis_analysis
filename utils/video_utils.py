@@ -3,7 +3,6 @@ Utility functions for reading and saving videos.
 """
 
 import cv2
-from PIL import Image
 
 
 def read_video(video_path: str) -> list:
