@@ -28,9 +28,7 @@ def update_yml_file() -> None:
     if not os.path.exists("data.yaml"):
         raise Exception("data.yaml not found in path.")
 
-    data_yml_path = str(os.getenv("DATA_YML_PATH"))
-
-    with open(data_yml_path, "r") as f:
+    with open("tennis-ball-detection-6/data.yaml", "r") as f:
         data = f.read()
         data = data.replace(
             "train: tennis-ball-detection-6/train/images", "train: ../train/images"
