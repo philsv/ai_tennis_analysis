@@ -54,7 +54,9 @@ def train_model(data: str) -> None:
 if __name__ == "__main__":
     # Download tennis ball dataset to train the model on.
     download_dataset()
-
-    # Train the model.
-    data_yml_path = str(os.getenv("DATA_YML_PATH"))
-    train_model(data=data_yml_path)
+    
+    # Update data.yaml structure to align with the latest requirements of the ultralytics package.
+    update_yml_file()
+    
+    # Train the model on the dataset.
+    train_model(data="tennis-ball-detection-6/data.yaml")
