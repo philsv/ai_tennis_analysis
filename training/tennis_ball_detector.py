@@ -3,6 +3,7 @@ Train a YOLOv5 model on the tennis ball dataset.
 """
 
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
 from roboflow import Roboflow  # type: ignore
@@ -25,17 +26,25 @@ def download_dataset() -> None:
 
 def update_yml_file() -> None:
     """Update the yml file text to change the train and valid paths."""
-    if not os.path.exists("data.yaml"):
+    yml_path = "tennis-ball-detection-6/data.yaml"
+    
+    if not os.path.exists(yml_path):
         raise Exception("data.yaml not found in path.")
 
-    with open("tennis-ball-detection-6/data.yaml", "r") as f:
+    with open(yml_path, "r") as f:
         data = f.read()
-        data = data.replace(
-            "train: tennis-ball-detection-6/train/images", "train: ../train/images"
-        )
-        data = data.replace(
-            "val: tennis-ball-detection-6/valid/images", "val: ../valid/images"
-        )
+        
+    data = data.replace(
+        "train: tennis-ball-detection-6/train/images", "train: ../train/images"
+    )
+    data = data.replace(
+        "val: tennis-ball-detection-6/valid/images", "val: ../valid/images"
+    )
+    
+    with open(yml_path, "w") as f:
+        f.write(data)
+        
+    print("Updated yml file.")
 
 
 def train_model(data: str) -> None:
