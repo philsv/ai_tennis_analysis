@@ -3,7 +3,6 @@ Train a YOLOv5 model on the tennis ball dataset.
 """
 
 import os
-from pathlib import Path
 
 from dotenv import load_dotenv
 from roboflow import Roboflow  # type: ignore
